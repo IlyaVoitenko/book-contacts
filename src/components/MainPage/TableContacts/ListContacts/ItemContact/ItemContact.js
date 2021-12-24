@@ -1,9 +1,15 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import style from './ItemContact.module.css';
-import { deleteContact } from '../../../../../store/actionCreaters';
+import { Link } from 'react-router-dom';
+import {
+  openCloseWindowConfirmationDeleting,
+  updateSelectedContact,
+} from '../../../../../store/actionCreaters';
+
 const ItemContact = ({ contact }) => {
   const { id, name, surname, address, email, phoneNumber } = contact;
+
   const dispatch = useDispatch();
   return (
     <tr>
@@ -13,12 +19,15 @@ const ItemContact = ({ contact }) => {
       <td className={style.tdTable}>{email}</td>
       <td className={style.tdTable}>{phoneNumber}</td>
       <td className={style.tdTable}>
-        <button> &#9998;</button>
+        <button>
+          <Link to="/selectedContact">&#9998;</Link>
+        </button>
       </td>
       <td className={style.tdTable}>
         <button
           onClick={() => {
-            dispatch(deleteContact(id));
+            dispatch(updateSelectedContact({ id: id }));
+            dispatch(openCloseWindowConfirmationDeleting(true));
           }}
         >
           &#10006;

@@ -3,9 +3,13 @@ import {
   OPEN_CLOSE_MODAL_WINDOW,
   UPDATE_CONTACT,
   DELETE_CONTACT,
+  SELECTED_CONTACT,
+  OPEN_CLOSE_WINDOW_CONFIRMATION_DELETING,
 } from './actionTypes';
 const initialState = {
-  isOpenModal: false,
+  isOpenModalUpdateContact: false,
+  isOpenWindowConfirmationDeleting: false,
+  selectedContact: {},
   listContacts: [],
   contact: {
     id: '',
@@ -19,7 +23,9 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case OPEN_CLOSE_MODAL_WINDOW:
-      return { ...state, isOpenModal: action.payload };
+      return { ...state, isOpenModalUpdateContact: action.payload };
+    case OPEN_CLOSE_WINDOW_CONFIRMATION_DELETING:
+      return { ...state, isOpenWindowConfirmationDeleting: action.payload };
     case ADD_CONTACT_TO_LIST:
       return {
         ...state,
@@ -36,6 +42,13 @@ function reducer(state = initialState, action) {
           ),
         ],
       };
+
+    case SELECTED_CONTACT:
+      return {
+        ...state,
+        selectedContact: { ...state.contact, ...action.payload },
+      };
+
     default:
       return state;
   }

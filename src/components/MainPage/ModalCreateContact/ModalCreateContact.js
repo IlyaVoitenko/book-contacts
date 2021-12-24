@@ -1,9 +1,12 @@
 import React from 'react';
 import style from './ModalCreateContact.module.css';
-import { openCloseModalWindow } from '../../store/actionCreaters';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedContact } from './selectors';
-import { updateContact, addContactToList } from '../../store/actionCreaters';
+import {
+  updateContact,
+  addContactToList,
+  openCloseModalWindow,
+} from '../../../store/actionCreaters';
 const ModalCreateContact = () => {
   const dispatch = useDispatch();
   const contact = useSelector(getSelectedContact);

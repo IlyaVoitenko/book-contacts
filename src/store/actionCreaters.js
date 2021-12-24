@@ -3,6 +3,8 @@ import {
   OPEN_CLOSE_MODAL_WINDOW,
   UPDATE_CONTACT,
   DELETE_CONTACT,
+  SELECTED_CONTACT,
+  OPEN_CLOSE_WINDOW_CONFIRMATION_DELETING,
 } from './actionTypes';
 
 export function updateContact(payload) {
@@ -16,4 +18,10 @@ export function addContactToList(payload) {
 }
 export function deleteContact(payload) {
   return { type: DELETE_CONTACT, payload };
+}
+export function updateSelectedContact(payload) {
+  return { type: SELECTED_CONTACT, payload };
+}
+export function openCloseWindowConfirmationDeleting(payload) {
+  return { type: OPEN_CLOSE_WINDOW_CONFIRMATION_DELETING, payload };
 }
