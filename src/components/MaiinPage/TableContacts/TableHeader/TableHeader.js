@@ -9,7 +9,7 @@ const TableHeader = () => {
         <th className={style.tdTable}>Address</th>
         <th className={style.tdTable}>Email</th>
         <th className={style.tdTable}>Phone number</th>
-        <th className={style.tdTable}>Edit</th>
+        <th className={style.tdTable}>Watch it</th>
         <th className={style.tdTable}>Delete</th>
       </tr>
     </thead>

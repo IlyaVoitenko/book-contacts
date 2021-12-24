@@ -7,8 +7,10 @@ import { updateContact, addContactToList } from '../../store/actionCreaters';
 const ModalCreateContact = () => {
   const dispatch = useDispatch();
   const contact = useSelector(getSelectedContact);
-  const { name, surname, email, phoneNumber, address } = contact;
+  const { id, name, surname, email, phoneNumber, address } = contact;
+  const countId = id + 1;
   function addNewContact() {
+    dispatch(updateContact((contact.id = +countId)));
     dispatch(addContactToList({ ...contact }));
     dispatch(openCloseModalWindow(false));
     dispatch(

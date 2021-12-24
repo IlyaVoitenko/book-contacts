@@ -1,7 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import style from './ItemContact.module.css';
+import { deleteContact } from '../../../../../store/actionCreaters';
 const ItemContact = ({ contact }) => {
-  const { name, surname, address, email, phoneNumber } = contact;
+  const { id, name, surname, address, email, phoneNumber } = contact;
+  const dispatch = useDispatch();
   return (
     <tr>
       <td className={style.tdTable}>{name}</td>
@@ -13,7 +16,13 @@ const ItemContact = ({ contact }) => {
         <button> &#9998;</button>
       </td>
       <td className={style.tdTable}>
-        <button> &#10006;</button>
+        <button
+          onClick={() => {
+            dispatch(deleteContact(id));
+          }}
+        >
+          &#10006;
+        </button>
       </td>
     </tr>
   );

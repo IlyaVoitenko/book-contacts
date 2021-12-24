@@ -2,6 +2,7 @@ import {
   ADD_CONTACT_TO_LIST,
   OPEN_CLOSE_MODAL_WINDOW,
   UPDATE_CONTACT,
+  DELETE_CONTACT,
 } from './actionTypes';
 
 export function updateContact(payload) {
@@ -12,4 +13,7 @@ export function openCloseModalWindow(payload) {
 }
 export function addContactToList(payload) {
   return { type: ADD_CONTACT_TO_LIST, payload };
+}
+export function deleteContact(payload) {
+  return { type: DELETE_CONTACT, payload };
 }

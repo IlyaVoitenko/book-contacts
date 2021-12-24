@@ -2,19 +2,13 @@ import {
   ADD_CONTACT_TO_LIST,
   OPEN_CLOSE_MODAL_WINDOW,
   UPDATE_CONTACT,
+  DELETE_CONTACT,
 } from './actionTypes';
 const initialState = {
   isOpenModal: false,
-  listContacts: [
-    {
-      name: 'alex',
-      surname: 'Ivanov',
-      email: 'sada@gma.com',
-      phoneNumber: '+4804432242',
-      address: 'sdasddd 12 ',
-    },
-  ],
+  listContacts: [],
   contact: {
+    id: '',
     name: '',
     surname: '',
     email: '',
@@ -33,6 +27,15 @@ function reducer(state = initialState, action) {
       };
     case UPDATE_CONTACT:
       return { ...state, contact: { ...state.contact, ...action.payload } };
+    case DELETE_CONTACT:
+      return {
+        ...state,
+        listContacts: [
+          ...state.listContacts.filter(
+            (contact) => action.payload !== contact.id
+          ),
+        ],
+      };
     default:
       return state;
   }

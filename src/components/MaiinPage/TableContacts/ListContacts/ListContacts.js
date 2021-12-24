@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import ItemContact from './ItemContact';
 const ListContacts = () => {
   const listContacts = useSelector(getListContacts);
-  console.log(listContacts);
   return (
     <tbody>
       {listContacts.map((contact, index) => {
