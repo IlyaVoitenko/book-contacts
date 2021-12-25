@@ -5,9 +5,14 @@ import { openCloseModalAddFiedToContact } from '../../../store/actionCreaters';
 const BtnAddFieldForContact = () => {
   const dispatch = useDispatch();
   return (
-    <button onClick={() => dispatch(openCloseModalAddFiedToContact(true))}>
-      add Field
-    </button>
+    <div>
+      <br />
+      <button onClick={() => dispatch(openCloseModalAddFiedToContact(true))}>
+        add Field
+      </button>
+      <br />
+      <br />
+    </div>
   );
 };
 export default BtnAddFieldForContact;

@@ -2,21 +2,22 @@ import { Fragment } from 'react';
 import BtnAddNewContact from './BtnAddNewContact';
 import TableContacts from './TableContacts';
 import ModalCreateContact from './ModalCreateContact';
-import { useSelector } from 'react-redux';
 import ModalСonfirmationDeleting from '../ModalСonfirmationDeleting';
+import { useSelector } from 'react-redux';
 import { isOpenModalUpdateContact } from './selector';
-import { openWindowConfirmationDeleting } from '../MainPage/TableContacts/ListContacts/ItemContact/selected';
 const MainPage = () => {
-  const isOpenWindowConfirmationDeleting = useSelector(
-    openWindowConfirmationDeleting
-  );
   const isOpen = useSelector(isOpenModalUpdateContact);
+  const isOpenCloseWindowConfirmationDeleting = useSelector(
+    isOpenModalUpdateContact
+  );
   return (
     <Fragment>
       <BtnAddNewContact />
       <TableContacts />
+      {isOpenCloseWindowConfirmationDeleting ? (
+        <ModalСonfirmationDeleting />
+      ) : null}
       {isOpen ? <ModalCreateContact /> : null}
-      {isOpenWindowConfirmationDeleting ? <ModalСonfirmationDeleting /> : null}
     </Fragment>
   );
 };

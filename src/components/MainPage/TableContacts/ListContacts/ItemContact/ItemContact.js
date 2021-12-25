@@ -6,11 +6,11 @@ import {
   openCloseWindowConfirmationDeleting,
   updateSelectedContact,
   updateContact,
+  confirmationDeleting,
 } from '../../../../../store/actionCreaters';
 
 const ItemContact = ({ contact }) => {
   const { id, name, surname, address, email, phoneNumber } = contact;
-  console.log('update contact :', contact);
   const dispatch = useDispatch();
   return (
     <tr>
@@ -34,6 +34,7 @@ const ItemContact = ({ contact }) => {
         <button
           onClick={() => {
             dispatch(updateSelectedContact({ id: id }));
+            dispatch(confirmationDeleting({ id: id }));
             dispatch(openCloseWindowConfirmationDeleting(true));
           }}
         >

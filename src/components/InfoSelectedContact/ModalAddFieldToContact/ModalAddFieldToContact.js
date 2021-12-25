@@ -1,20 +1,49 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { openCloseModalAddFiedToContact } from '../../../store/actionCreaters';
+import style from './ModalAddFieldToContact.module.css';
+import {
+  openCloseModalAddFiedToContact,
+  updateListObjectFields,
+} from '../../../store/actionCreaters';
 const ModalAddFieldToContact = () => {
+  // updateListObjectFields
   const dispatch = useDispatch();
+
+  let fieldName = '';
+  let fieldValue = '';
   return (
-    <div>
-      <button onClick={() => dispatch(openCloseModalAddFiedToContact(false))}>
+    <div className={style.container}>
+      <button
+        className={style.btnClose}
+        onClick={() => dispatch(openCloseModalAddFiedToContact(false))}
+      >
         &#10006;
       </button>
-      add field of a contact
+      <p> add field of a contact</p>
       <label>
-        <input></input>
+        field name :
+        <input onChange={({ target }) => (fieldName = target.value)}></input>
       </label>
+      <br></br>
       <label>
-        <input></input>
+        field value :
+        <input onChange={({ target }) => (fieldValue = target.value)}></input>
       </label>
+      <br></br>
+      <button
+        onClick={() => {
+          dispatch(
+            updateListObjectFields([
+              {
+                fieldName: fieldName,
+                fieldValue: fieldValue,
+              },
+            ])
+          );
+        }}
+      >
+        Add
+      </button>
     </div>
   );
 };

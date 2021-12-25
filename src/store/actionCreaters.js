@@ -7,8 +7,15 @@ import {
   OPEN_CLOSE_WINDOW_CONFIRMATION_DELETING,
   UPDATE_LIST_OBJECT_FIELDS,
   OPEN_MODAL_ADD_FIELD_TO_CONTACT,
+  DELETE_SELECTED_FIELD,
+  CONFIRMATION_DELETING,
 } from './actionTypes';
-
+export function confirmationDeleting(payload) {
+  return { type: CONFIRMATION_DELETING, payload };
+}
+export function deleteField(payload) {
+  return { type: DELETE_SELECTED_FIELD, payload };
+}
 export function updateContact(payload) {
   return { type: UPDATE_CONTACT, payload };
 }

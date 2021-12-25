@@ -1,18 +1,22 @@
 import React from 'react';
 import Header from '../Header';
 import ListFieldsSelectedContact from './ListFieldsSelectedContact';
-import useUpdateListFieldsContact from './useUpdateListFieldsContact';
 import ModalAddFieldToContact from './ModalAddFieldToContact';
 import BtnAddFieldForContact from './BtnAddFieldForContact';
+import ModalСonfirmationDeleting from '../ModalСonfirmationDeleting';
 import { openModalAddFieldToContact } from './selectors';
 import { useSelector } from 'react-redux';
+import { openWindowConfirmationDeleting } from '../MainPage/TableContacts/ListContacts/ItemContact/selected';
 const InfoSelectedContact = () => {
-  useUpdateListFieldsContact();
   const isOpenModalAddFieldToContact = useSelector(openModalAddFieldToContact);
+  const isOpenWindowConfirmationDeleting = useSelector(
+    openWindowConfirmationDeleting
+  );
   return (
     <div>
       <Header />
       <BtnAddFieldForContact />
+      {isOpenWindowConfirmationDeleting ? <ModalСonfirmationDeleting /> : null}
       <div>
         <ListFieldsSelectedContact />
         {isOpenModalAddFieldToContact ? <ModalAddFieldToContact /> : null}
