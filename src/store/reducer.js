@@ -5,11 +5,15 @@ import {
   DELETE_CONTACT,
   SELECTED_CONTACT,
   OPEN_CLOSE_WINDOW_CONFIRMATION_DELETING,
+  UPDATE_LIST_OBJECT_FIELDS,
+  OPEN_MODAL_ADD_FIELD_TO_CONTACT,
 } from './actionTypes';
 const initialState = {
+  isOpenModalAddFieldToContact: false,
   isOpenModalUpdateContact: false,
   isOpenWindowConfirmationDeleting: false,
   selectedContact: {},
+  listFieldsSelectedContact: [],
   listContacts: [],
   contact: {
     id: '',
@@ -22,6 +26,8 @@ const initialState = {
 };
 function reducer(state = initialState, action) {
   switch (action.type) {
+    case OPEN_MODAL_ADD_FIELD_TO_CONTACT:
+      return { ...state, isOpenModalAddFieldToContact: action.payload };
     case OPEN_CLOSE_MODAL_WINDOW:
       return { ...state, isOpenModalUpdateContact: action.payload };
     case OPEN_CLOSE_WINDOW_CONFIRMATION_DELETING:
@@ -42,13 +48,16 @@ function reducer(state = initialState, action) {
           ),
         ],
       };
-
     case SELECTED_CONTACT:
       return {
         ...state,
         selectedContact: { ...state.contact, ...action.payload },
       };
-
+    case UPDATE_LIST_OBJECT_FIELDS:
+      return {
+        ...state,
+        listFieldsSelectedContact: [action.payload],
+      };
     default:
       return state;
   }

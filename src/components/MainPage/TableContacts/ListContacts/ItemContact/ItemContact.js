@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 import {
   openCloseWindowConfirmationDeleting,
   updateSelectedContact,
+  updateContact,
 } from '../../../../../store/actionCreaters';
 
 const ItemContact = ({ contact }) => {
   const { id, name, surname, address, email, phoneNumber } = contact;
-
+  console.log('update contact :', contact);
   const dispatch = useDispatch();
   return (
     <tr>
@@ -19,9 +20,15 @@ const ItemContact = ({ contact }) => {
       <td className={style.tdTable}>{email}</td>
       <td className={style.tdTable}>{phoneNumber}</td>
       <td className={style.tdTable}>
-        <button>
-          <Link to="/selectedContact">&#9998;</Link>
-        </button>
+        <Link to="/selectedContact">
+          <button
+            onClick={() => {
+              dispatch(updateContact({ ...contact }));
+            }}
+          >
+            &#9998;
+          </button>
+        </Link>
       </td>
       <td className={style.tdTable}>
         <button
