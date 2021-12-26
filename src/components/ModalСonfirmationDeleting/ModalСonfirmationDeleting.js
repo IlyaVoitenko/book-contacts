@@ -7,6 +7,7 @@ import {
   deleteField,
 } from '../../store/actionCreaters';
 import { getConfirmationDeleting } from './selectors.js';
+
 const ModalСonfirmationDeleting = () => {
   const dispatch = useDispatch();
   const confirmationDeleting = useSelector(getConfirmationDeleting);

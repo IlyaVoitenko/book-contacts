@@ -9,12 +9,16 @@ import {
   OPEN_MODAL_ADD_FIELD_TO_CONTACT,
   DELETE_SELECTED_FIELD,
   CONFIRMATION_DELETING,
+  OPEN_CLOSE_MODAL_EDIT,
+  GET_FIELDS_FOR_RDITING,
 } from './actionTypes';
 const initialState = {
+  editFieldContact: {},
   confirmationDeleting: {},
   isOpenModalAddFieldToContact: false,
   isOpenModalUpdateContact: false,
   isOpenWindowConfirmationDeleting: false,
+  isOpenModalEdit: false,
   selectedContact: {},
   listFieldsSelectedContact: [],
   listContacts: [],
@@ -29,6 +33,8 @@ const initialState = {
 };
 function reducer(state = initialState, action) {
   switch (action.type) {
+    case OPEN_CLOSE_MODAL_EDIT:
+      return { ...state, isOpenModalEdit: action.payload };
     case CONFIRMATION_DELETING:
       return { ...state, confirmationDeleting: action.payload };
     case OPEN_MODAL_ADD_FIELD_TO_CONTACT:
@@ -74,6 +80,11 @@ function reducer(state = initialState, action) {
           ...state.listFieldsSelectedContact,
           ...action.payload,
         ],
+      };
+    case GET_FIELDS_FOR_RDITING:
+      return {
+        ...state,
+        editFieldContact: action.payload,
       };
     default:
       return state;

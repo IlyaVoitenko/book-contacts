@@ -14,8 +14,6 @@ const ListFieldsSelectedContact = () => {
       dispatch(updateListObjectFields([{ fieldName, fieldValue }]));
     }
   }, [dispatch]);
-  console.log(listFieldsselectedContact);
-  console.log('selectedContact :', selectedContact);
 
   return listFieldsselectedContact.map((fieldContact, index) => {
     return (

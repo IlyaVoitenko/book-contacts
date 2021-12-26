@@ -4,11 +4,12 @@ import TableContacts from './TableContacts';
 import ModalCreateContact from './ModalCreateContact';
 import ModalСonfirmationDeleting from '../ModalСonfirmationDeleting';
 import { useSelector } from 'react-redux';
+import { openWindowConfirmationDeleting } from '../ModalСonfirmationDeleting/selectors';
 import { isOpenModalUpdateContact } from './selector';
 const MainPage = () => {
   const isOpen = useSelector(isOpenModalUpdateContact);
   const isOpenCloseWindowConfirmationDeleting = useSelector(
-    isOpenModalUpdateContact
+    openWindowConfirmationDeleting
   );
   return (
     <Fragment>

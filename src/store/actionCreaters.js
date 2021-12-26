@@ -9,6 +9,8 @@ import {
   OPEN_MODAL_ADD_FIELD_TO_CONTACT,
   DELETE_SELECTED_FIELD,
   CONFIRMATION_DELETING,
+  OPEN_CLOSE_MODAL_EDIT,
+  GET_FIELDS_FOR_RDITING,
 } from './actionTypes';
 export function confirmationDeleting(payload) {
   return { type: CONFIRMATION_DELETING, payload };
@@ -31,6 +33,10 @@ export function updateSelectedContact(payload) {
 export function updateListObjectFields(payload) {
   return { type: UPDATE_LIST_OBJECT_FIELDS, payload };
 }
+export function getFieldsForEditing(payload) {
+  return { type: GET_FIELDS_FOR_RDITING, payload };
+}
+//modal windows
 export function openCloseModalWindow(payload) {
   return { type: OPEN_CLOSE_MODAL_WINDOW, payload };
 }
@@ -39,4 +45,7 @@ export function openCloseWindowConfirmationDeleting(payload) {
 }
 export function openCloseModalAddFiedToContact(payload) {
   return { type: OPEN_MODAL_ADD_FIELD_TO_CONTACT, payload };
+}
+export function openCloseModalEdit(payload) {
+  return { type: OPEN_CLOSE_MODAL_EDIT, payload };
 }

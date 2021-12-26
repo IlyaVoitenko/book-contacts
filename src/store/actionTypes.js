@@ -9,3 +9,5 @@ export const UPDATE_LIST_OBJECT_FIELDS = 'update_list_object_fields';
 export const OPEN_MODAL_ADD_FIELD_TO_CONTACT = 'ModalAddFiledToContact';
 export const DELETE_SELECTED_FIELD = 'delete_selected_field';
 export const CONFIRMATION_DELETING = 'confirmation_Delete';
+export const OPEN_CLOSE_MODAL_EDIT = 'open_close_modal_edit';
+export const GET_FIELDS_FOR_RDITING = 'get_fields_for_editing';

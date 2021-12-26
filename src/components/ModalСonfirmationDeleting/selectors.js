@@ -4,3 +4,6 @@ export function getSelectedContact(state) {
 export function getConfirmationDeleting(state) {
   return state.confirmationDeleting;
 }
+export function openWindowConfirmationDeleting(state) {
+  return state.isOpenWindowConfirmationDeleting;
+}
