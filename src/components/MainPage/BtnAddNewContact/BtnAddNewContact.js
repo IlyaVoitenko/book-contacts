@@ -5,7 +5,7 @@ const BtnAddNewContact = () => {
   const dispatch = useDispatch();
   return (
     <button onClick={() => dispatch(openCloseModalWindow(true))}>
-      Add a new Contact
+      Add a new contact
     </button>
   );
 };
