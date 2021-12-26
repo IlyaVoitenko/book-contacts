@@ -13,6 +13,7 @@ import {
   GET_FIELDS_FOR_RDITING,
   UPDATE_LIST_LAST_CHANGES,
   RETURN_LAST_STATE_LIST_FIELDS,
+  CLEAR_LIST_FIELDS,
 } from './actionTypes';
 
 //инициализация state
@@ -111,6 +112,8 @@ function reducer(state = initialState, action) {
     //возвращаем предыдущее состояние
     case RETURN_LAST_STATE_LIST_FIELDS:
       return { ...state, listFieldsSelectedContact: [action.payload] };
+    case CLEAR_LIST_FIELDS:
+      return { ...state, listFieldsSelectedContact: [] };
     default:
       return state;
   }

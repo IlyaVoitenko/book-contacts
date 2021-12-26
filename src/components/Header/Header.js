@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { updateListObjectFields } from '../../store/actionCreaters';
+import { clearListFields } from '../../store/actionCreaters';
 const Header = () => {
   const dispatch = useDispatch();
   return (
@@ -9,7 +9,8 @@ const Header = () => {
       <ul>
         <button
           onClick={() => {
-            dispatch(updateListObjectFields([]));
+            //clear  ListFields
+            dispatch(clearListFields(clearListFields()));
           }}
         >
           <Link to="/">Main Page</Link>

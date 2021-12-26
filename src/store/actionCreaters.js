@@ -13,6 +13,7 @@ import {
   GET_FIELDS_FOR_RDITING,
   UPDATE_LIST_LAST_CHANGES,
   RETURN_LAST_STATE_LIST_FIELDS,
+  CLEAR_LIST_FIELDS,
 } from './actionTypes';
 
 export function updateListLastChanges(payload) {
@@ -44,6 +45,9 @@ export function getFieldsForEditing(payload) {
 }
 export function returnChangesListFields(payload) {
   return { type: RETURN_LAST_STATE_LIST_FIELDS, payload };
+}
+export function clearListFields() {
+  return { type: CLEAR_LIST_FIELDS };
 }
 //modal windows
 export function openCloseModalWindow(payload) {
