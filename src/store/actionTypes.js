@@ -11,3 +11,5 @@ export const DELETE_SELECTED_FIELD = 'delete_selected_field';
 export const CONFIRMATION_DELETING = 'confirmation_Delete';
 export const OPEN_CLOSE_MODAL_EDIT = 'open_close_modal_edit';
 export const GET_FIELDS_FOR_RDITING = 'get_fields_for_editing';
+export const UPDATE_LIST_LAST_CHANGES = 'update_list_last_changes';
+export const RETURN_LAST_STATE_LIST_FIELDS = ' return_last_state_list_fields';

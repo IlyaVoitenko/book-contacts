@@ -22,7 +22,6 @@ const ItemFieldsSelectedContact = ({ fieldContact }) => {
       </button>
       <button
         onClick={() => {
-          console.log({ fieldName: fieldName });
           dispatch(
             getFieldsForEditing({
               fieldName: fieldName,

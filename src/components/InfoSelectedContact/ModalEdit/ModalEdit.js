@@ -4,18 +4,23 @@ import {
   openCloseModalEdit,
   deleteField,
   updateListObjectFields,
+  updateListLastChanges,
 } from '../../../store/actionCreaters';
+import style from './ModalEdit.module.css';
+import { getListObjectFields } from '../ListFieldsSelectedContact/selectors';
 import { getEditField } from './selectors';
+
 const ModalEdit = () => {
   const dispatch = useDispatch();
-  let editField = useSelector(getEditField);
+  const editField = useSelector(getEditField);
+  const listFieldsselectedContact = useSelector(getListObjectFields);
   const [changedFieldName, setChangedFieldName] = useState(editField.fieldName);
   const [changedFieldValue, setChangedFieldValue] = useState(
     editField.fieldValue
   );
 
   return (
-    <div>
+    <div className={style.container}>
       <p>
         name of field
         <input
@@ -37,6 +42,7 @@ const ModalEdit = () => {
       <br></br>
       <button
         onClick={() => {
+          dispatch(updateListLastChanges([...listFieldsselectedContact]));
           dispatch(deleteField(editField.fieldName));
           dispatch(
             updateListObjectFields([

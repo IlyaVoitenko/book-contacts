@@ -5,20 +5,18 @@ import ModalCreateContact from './ModalCreateContact';
 import ModalСonfirmationDeleting from '../ModalСonfirmationDeleting';
 import { useSelector } from 'react-redux';
 import { openWindowConfirmationDeleting } from '../ModalСonfirmationDeleting/selectors';
-import { isOpenModalUpdateContact } from './selector';
+import { isOpenModalCreateContact } from './ModalCreateContact/selector';
 const MainPage = () => {
-  const isOpen = useSelector(isOpenModalUpdateContact);
-  const isOpenCloseWindowConfirmationDeleting = useSelector(
+  const isOpenModalCreate = useSelector(isOpenModalCreateContact);
+  const isOpenWindowConfirmationDeleting = useSelector(
     openWindowConfirmationDeleting
   );
   return (
     <Fragment>
       <BtnAddNewContact />
       <TableContacts />
-      {isOpenCloseWindowConfirmationDeleting ? (
-        <ModalСonfirmationDeleting />
-      ) : null}
-      {isOpen ? <ModalCreateContact /> : null}
+      {isOpenWindowConfirmationDeleting ? <ModalСonfirmationDeleting /> : null}
+      {isOpenModalCreate ? <ModalCreateContact /> : null}
     </Fragment>
   );
 };

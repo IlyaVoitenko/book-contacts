@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './ModalCreateContact.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSelectedContact } from './selectors';
+import { getSelectedContact } from '../../InfoSelectedContact/ListFieldsSelectedContact/selectors';
 import {
   updateContact,
   addContactToList,
@@ -16,15 +16,6 @@ const ModalCreateContact = () => {
     dispatch(updateContact((contact.id = +countId)));
     dispatch(addContactToList({ ...contact }));
     dispatch(openCloseModalWindow(false));
-    dispatch(
-      updateContact({
-        name: '',
-        surname: '',
-        email: '',
-        phoneNumber: '',
-        address: '',
-      })
-    );
   }
   return (
     <div className={style.container}>

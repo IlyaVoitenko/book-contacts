@@ -40,6 +40,7 @@ const ModalAddFieldToContact = () => {
               },
             ])
           );
+          dispatch(openCloseModalAddFiedToContact(false));
         }}
       >
         Add

@@ -11,17 +11,16 @@ import {
   CONFIRMATION_DELETING,
   OPEN_CLOSE_MODAL_EDIT,
   GET_FIELDS_FOR_RDITING,
+  UPDATE_LIST_LAST_CHANGES,
+  RETURN_LAST_STATE_LIST_FIELDS,
 } from './actionTypes';
 const initialState = {
-  editFieldContact: {},
-  confirmationDeleting: {},
   isOpenModalAddFieldToContact: false,
   isOpenModalUpdateContact: false,
   isOpenWindowConfirmationDeleting: false,
   isOpenModalEdit: false,
-  selectedContact: {},
-  listFieldsSelectedContact: [],
-  listContacts: [],
+  editFieldContact: {},
+  confirmationDeleting: {},
   contact: {
     id: '',
     name: '',
@@ -30,6 +29,10 @@ const initialState = {
     phoneNumber: '',
     address: '',
   },
+  selectedContact: {},
+  listFieldsSelectedContact: [],
+  listContacts: [],
+  listLastChanges: [],
 };
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -86,6 +89,10 @@ function reducer(state = initialState, action) {
         ...state,
         editFieldContact: action.payload,
       };
+    case UPDATE_LIST_LAST_CHANGES:
+      return { ...state, listLastChanges: [action.payload] };
+    case RETURN_LAST_STATE_LIST_FIELDS:
+      return { ...state, listFieldsSelectedContact: [action.payload] };
     default:
       return state;
   }

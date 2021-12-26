@@ -11,7 +11,13 @@ import {
   CONFIRMATION_DELETING,
   OPEN_CLOSE_MODAL_EDIT,
   GET_FIELDS_FOR_RDITING,
+  UPDATE_LIST_LAST_CHANGES,
+  RETURN_LAST_STATE_LIST_FIELDS,
 } from './actionTypes';
+
+export function updateListLastChanges(payload) {
+  return { type: UPDATE_LIST_LAST_CHANGES, payload };
+}
 export function confirmationDeleting(payload) {
   return { type: CONFIRMATION_DELETING, payload };
 }
@@ -35,6 +41,9 @@ export function updateListObjectFields(payload) {
 }
 export function getFieldsForEditing(payload) {
   return { type: GET_FIELDS_FOR_RDITING, payload };
+}
+export function returnChangesListFields(payload) {
+  return { type: RETURN_LAST_STATE_LIST_FIELDS, payload };
 }
 //modal windows
 export function openCloseModalWindow(payload) {
