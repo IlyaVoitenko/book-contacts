@@ -9,30 +9,26 @@ import {
 const ItemFieldsSelectedContact = ({ fieldContact }) => {
   const { fieldName, fieldValue } = fieldContact;
   const dispatch = useDispatch();
+
+  function editCurrentField() {
+    dispatch(
+      getFieldsForEditing({
+        fieldName: fieldName,
+        fieldValue: fieldValue,
+      })
+    );
+    dispatch(openCloseModalEdit(true));
+  }
+
+  function deleteCurrentField() {
+    dispatch(openCloseWindowConfirmationDeleting(true));
+    dispatch(confirmationDeleting({ fieldName: fieldName }));
+  }
   return (
     <div>
       <span>{fieldName}</span>&nbsp; <span>{fieldValue}</span>&nbsp;
-      <button
-        onClick={() => {
-          dispatch(openCloseWindowConfirmationDeleting(true));
-          dispatch(confirmationDeleting({ fieldName: fieldName }));
-        }}
-      >
-        delete
-      </button>
-      <button
-        onClick={() => {
-          dispatch(
-            getFieldsForEditing({
-              fieldName: fieldName,
-              fieldValue: fieldValue,
-            })
-          );
-          dispatch(openCloseModalEdit(true));
-        }}
-      >
-        edit
-      </button>
+      <button onClick={() => deleteCurrentField()}>delete</button>
+      <button onClick={() => editCurrentField()}>edit</button>
     </div>
   );
 };

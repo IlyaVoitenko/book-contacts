@@ -5,12 +5,14 @@ import {
   updateListLastChanges,
 } from '../../../store/actionCreaters';
 import { getListObjectFields } from '../ListFieldsSelectedContact/selectors';
+
 const BtnAddFieldForContact = () => {
   const dispatch = useDispatch();
   const listFieldsselectedContact = useSelector(getListObjectFields);
   return (
     <button
       onClick={() => {
+        //соханение предыдущего состояния
         dispatch(updateListLastChanges([...listFieldsselectedContact]));
         dispatch(openCloseModalAddFiedToContact(true));
       }}

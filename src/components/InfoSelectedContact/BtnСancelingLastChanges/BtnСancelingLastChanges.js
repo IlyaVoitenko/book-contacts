@@ -10,6 +10,7 @@ const BtnСancelingLastChanges = () => {
   return (
     <button
       onClick={() => {
+        // обновление массива хранящего поля контакта
         dispatch(returnChangesListFields([...listLastChanges.flat()]));
       }}
     >

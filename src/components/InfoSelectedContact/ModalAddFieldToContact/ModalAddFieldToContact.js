@@ -6,9 +6,8 @@ import {
   updateListObjectFields,
 } from '../../../store/actionCreaters';
 const ModalAddFieldToContact = () => {
-  // updateListObjectFields
   const dispatch = useDispatch();
-
+  // let для возмоэности изменения поля
   let fieldName = '';
   let fieldValue = '';
   return (

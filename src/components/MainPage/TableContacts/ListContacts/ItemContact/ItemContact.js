@@ -11,6 +11,7 @@ import {
 
 const ItemContact = ({ contact }) => {
   const { id, name, surname, address, email, phoneNumber } = contact;
+  console.log('ItemContact', contact);
   const dispatch = useDispatch();
   return (
     <tr>

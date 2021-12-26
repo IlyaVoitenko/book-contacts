@@ -15,11 +15,14 @@ const ModalСonfirmationDeleting = () => {
   const confirmationDeleting = useSelector(getConfirmationDeleting);
   const listFieldsselectedContact = useSelector(getListObjectFields);
   const { id, fieldName } = confirmationDeleting;
+
   function deleteSelectedContact(id, fieldName) {
+    // удаление контакта
     if (id !== undefined) {
       dispatch(deleteContact(id));
       dispatch(openCloseWindowConfirmationDeleting(false));
     }
+    // удаление поля
     dispatch(updateListLastChanges([...listFieldsselectedContact]));
     dispatch(deleteField(fieldName));
     dispatch(openCloseWindowConfirmationDeleting(false));
@@ -33,7 +36,7 @@ const ModalСonfirmationDeleting = () => {
           deleteSelectedContact(id, fieldName);
         }}
       >
-        eccept
+        accept
       </button>
       <button
         onClick={() => {

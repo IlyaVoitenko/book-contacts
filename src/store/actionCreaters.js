@@ -1,5 +1,5 @@
 import {
-  ADD_CONTACT_TO_LIST,
+  ADD_CONTACT_TO_LIST_CONTACTS,
   OPEN_CLOSE_MODAL_WINDOW,
   UPDATE_CONTACT,
   DELETE_CONTACT,
@@ -28,7 +28,7 @@ export function updateContact(payload) {
   return { type: UPDATE_CONTACT, payload };
 }
 export function addContactToList(payload) {
-  return { type: ADD_CONTACT_TO_LIST, payload };
+  return { type: ADD_CONTACT_TO_LIST_CONTACTS, payload };
 }
 export function deleteContact(payload) {
   return { type: DELETE_CONTACT, payload };

@@ -1,3 +1,3 @@
 export function isOpenModalCreateContact(state) {
-  return state.isOpenModalUpdateContact;
+  return state.isOpenModalCreateContact;
 }

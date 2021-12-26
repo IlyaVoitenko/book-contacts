@@ -14,10 +14,35 @@ const ModalEdit = () => {
   const dispatch = useDispatch();
   const editField = useSelector(getEditField);
   const listFieldsselectedContact = useSelector(getListObjectFields);
+  const nameForDelete = editField.fieldName;
   const [changedFieldName, setChangedFieldName] = useState(editField.fieldName);
   const [changedFieldValue, setChangedFieldValue] = useState(
     editField.fieldValue
   );
+  //редактирование
+  function AcceptEditing() {
+    // копируем старое состояние массива
+    dispatch(updateListLastChanges([...listFieldsselectedContact]));
+    //удаляем старое поле
+    dispatch(deleteField(nameForDelete));
+    // добавление нового поля
+    dispatch(
+      updateListObjectFields([
+        {
+          fieldName: changedFieldName,
+          fieldValue: changedFieldValue,
+        },
+      ])
+    );
+    dispatch(openCloseModalEdit(false));
+  }
+  //отмена редактирования
+  function cancelEditing() {
+    //очищение окна
+    setChangedFieldName('');
+    setChangedFieldValue('');
+    dispatch(openCloseModalEdit(false));
+  }
 
   return (
     <div className={style.container}>
@@ -40,32 +65,8 @@ const ModalEdit = () => {
         ></input>
       </p>
       <br></br>
-      <button
-        onClick={() => {
-          dispatch(updateListLastChanges([...listFieldsselectedContact]));
-          dispatch(deleteField(editField.fieldName));
-          dispatch(
-            updateListObjectFields([
-              {
-                fieldName: changedFieldName,
-                fieldValue: changedFieldValue,
-              },
-            ])
-          );
-          dispatch(openCloseModalEdit(false));
-        }}
-      >
-        Accept{' '}
-      </button>
-      <button
-        onClick={() => {
-          setChangedFieldName('');
-          setChangedFieldValue('');
-          dispatch(openCloseModalEdit(false));
-        }}
-      >
-        Cancel
-      </button>
+      <button onClick={() => AcceptEditing()}>Accept </button>
+      <button onClick={() => cancelEditing()}>Cancel</button>
     </div>
   );
 };

@@ -21,11 +21,10 @@ const InfoSelectedContact = () => {
     <div>
       <Header />
       <div>
-        <br />
-        <BtnAddFieldForContact />
-        <BtnСancelingLastChanges />
-        <br />
-        <br />
+        <p>
+          <BtnAddFieldForContact />
+          <BtnСancelingLastChanges />
+        </p>
       </div>
       {isOpenEditModal ? <ModalEdit /> : null}
       {isOpenWindowConfirmationDeleting ? <ModalСonfirmationDeleting /> : null}

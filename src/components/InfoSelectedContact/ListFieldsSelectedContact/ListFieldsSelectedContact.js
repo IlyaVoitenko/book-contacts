@@ -9,11 +9,14 @@ const ListFieldsSelectedContact = () => {
   const listFieldsselectedContact = useSelector(getListObjectFields);
   const selectedContact = useSelector(getSelectedContact);
 
+  // добавляем поля  из обьекта в массив
   useEffect(() => {
     for (const [fieldName, fieldValue] of Object.entries(selectedContact)) {
       dispatch(updateListObjectFields([{ fieldName, fieldValue }]));
     }
   }, [dispatch, selectedContact]);
+
+  //отрисовка массива в котором хранятся поля выбраного контакта
   return listFieldsselectedContact.map((fieldContact, index) => {
     return (
       <ItemFieldsSelectedContact key={index} fieldContact={fieldContact} />

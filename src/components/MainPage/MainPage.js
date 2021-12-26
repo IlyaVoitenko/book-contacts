@@ -5,7 +5,7 @@ import ModalCreateContact from './ModalCreateContact';
 import ModalСonfirmationDeleting from '../ModalСonfirmationDeleting';
 import { useSelector } from 'react-redux';
 import { openWindowConfirmationDeleting } from '../ModalСonfirmationDeleting/selectors';
-import { isOpenModalCreateContact } from './ModalCreateContact/selector';
+import { isOpenModalCreateContact } from './selector';
 const MainPage = () => {
   const isOpenModalCreate = useSelector(isOpenModalCreateContact);
   const isOpenWindowConfirmationDeleting = useSelector(

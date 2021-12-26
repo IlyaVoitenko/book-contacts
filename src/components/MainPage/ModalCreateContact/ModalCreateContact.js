@@ -11,6 +11,7 @@ const ModalCreateContact = () => {
   const dispatch = useDispatch();
   const contact = useSelector(getSelectedContact);
   const { id, name, surname, email, phoneNumber, address } = contact;
+  //создаем id для нового контакта
   const countId = id + 1;
   function addNewContact() {
     dispatch(updateContact((contact.id = +countId)));
@@ -32,9 +33,11 @@ const ModalCreateContact = () => {
         <input
           type="text"
           value={name}
-          onChange={({ target }) =>
-            dispatch(updateContact({ name: target.value }))
-          }
+          onChange={({ target }) => {
+            //регулярное выражение дял блокировки ввода цыфр
+            target.value = target.value.replace(/[^a-zа-яё\s]/gi, '');
+            dispatch(updateContact({ name: target.value }));
+          }}
         ></input>
       </label>
       <br />
@@ -44,9 +47,11 @@ const ModalCreateContact = () => {
         <input
           type="text"
           value={surname}
-          onChange={({ target }) =>
-            dispatch(updateContact({ surname: target.value }))
-          }
+          onChange={({ target }) => {
+            //регулярное выражение дял блокировки ввода цыфр
+            target.value = target.value.replace(/[^a-zа-яё\s]/gi, '');
+            dispatch(updateContact({ surname: target.value }));
+          }}
         ></input>
       </label>
       <br />
@@ -68,9 +73,11 @@ const ModalCreateContact = () => {
         <input
           type="text"
           value={phoneNumber}
-          onChange={({ target }) =>
-            dispatch(updateContact({ phoneNumber: target.value }))
-          }
+          onChange={({ target }) => {
+            //регулярное выражение дял блокировки ввода букв
+            target.value = target.value.replace(/[^0-9\.\,]/g, '');
+            dispatch(updateContact({ phoneNumber: target.value }));
+          }}
         ></input>
       </label>
       <br />
