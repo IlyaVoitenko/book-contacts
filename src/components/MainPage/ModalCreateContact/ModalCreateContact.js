@@ -34,7 +34,7 @@ const ModalCreateContact = () => {
           type="text"
           value={name}
           onChange={({ target }) => {
-            //регулярное выражение дял блокировки ввода цыфр
+            //регулярное выражение дял блокировки ввода цифр
             target.value = target.value.replace(/[^a-zа-яё\s]/gi, '');
             dispatch(updateContact({ name: target.value }));
           }}
@@ -48,7 +48,7 @@ const ModalCreateContact = () => {
           type="text"
           value={surname}
           onChange={({ target }) => {
-            //регулярное выражение дял блокировки ввода цыфр
+            //регулярное выражение дял блокировки ввода цифр
             target.value = target.value.replace(/[^a-zа-яё\s]/gi, '');
             dispatch(updateContact({ surname: target.value }));
           }}

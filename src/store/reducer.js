@@ -91,7 +91,7 @@ function reducer(state = initialState, action) {
         ...state,
         selectedContact: { ...state.contact, ...action.payload },
       };
-    // обновление списка хранящава поля выбраного контакта
+    // обновление списка хранящего поля выбраного контакта
     case UPDATE_LIST_OBJECT_FIELDS:
       return {
         ...state,
